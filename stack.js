@@ -96,7 +96,39 @@ function is_palindrome(s) {
 }
 
 // True, true, true, false
-console.log(is_palindrome("dad"));
-console.log(is_palindrome("A man, a plan, a canal: Panama"));
-console.log(is_palindrome("1001"));
-console.log(is_palindrome("Tauhida"));
+// console.log(is_palindrome("dad"));
+// console.log(is_palindrome("A man, a plan, a canal: Panama"));
+// console.log(is_palindrome("1001"));
+// console.log(is_palindrome("Tauhida"));
+
+function matching(expression) {
+    const arr = expression.split('')
+    let lastOpenPosition = null
+    let counter = 0
+
+    let stack = new Stack()
+
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] === "(") {
+            stack.push('(')
+            lastOpenPosition = i
+        }
+
+        if (arr[i] === ")") {
+            if (stack.top.data === '(') {
+                stack.pop()
+            } else {
+                return (console.log("closing bracket at" + i))
+            }
+        }
+    }
+
+    if (stack.top) {
+
+    }
+
+    return console.log("correct")
+}
+
+console.log(matching('(3 + 2) - (4 - 3)'))
+
